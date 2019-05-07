@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "offset": {
+            "type": "integer"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "sort": {
+            "type": "string"
+        }
+    }
+}

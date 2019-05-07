@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "listid": {
+            "type": "string"
+        },
+        "offset": {
+            "type": "integer"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "sort": {
+            "type": "string"
+        }
+    }
+}

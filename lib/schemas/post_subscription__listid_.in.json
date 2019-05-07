@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "listid": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "confirmed": {
+                    "description": "Date-time when subscriber opted-in. Required if singleoptin is true.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Email address of the subscriber",
+                    "type": "string"
+                },
+                "fullname": {
+                    "description": "Full name (Last name, First Name) of the subscriber\n",
+                    "type": "string"
+                },
+                "ip": {
+                    "description": "Origin Ip of the subscriber when he/she opted-in. Required if singleoptin is true.",
+                    "type": "string"
+                },
+                "lang": {
+                    "description": "ISO 639-1 language code of the subscriber. When lang is one the supported system language, all communication\nwill be in this language.\n",
+                    "type": "string"
+                },
+                "singleoptin": {
+                    "description": "If true, no email will be sent asking user subscription confirmation. In that case, you must provide\nthe confirmation date (confirmed) and origin ip (ip) manually.\n",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "type": "object"
+        }
+    }
+}

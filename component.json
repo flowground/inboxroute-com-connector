@@ -1,0 +1,174 @@
+{
+    "title": "Mailsquad",
+    "description": "MailSquad offers an affordable and super easy way to create, send and track delightful emails.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/inboxroute.com/0.9/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.inboxroute.com/api",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "mqApiKey": {
+                "label": "Authorization (mqApiKey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_contacts": {
+            "main": "./lib/actions/get_contacts.js",
+            "title": "Get a paged result of contacts from a list",
+            "description": "Get a paged result of contacts from a list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_contacts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_contacts_lists": {
+            "main": "./lib/actions/get_contacts_lists.js",
+            "title": "Get a paged result of contact lists.",
+            "description": "Get a paged result of contact lists.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_contacts_lists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_contacts_lists": {
+            "main": "./lib/actions/post_contacts_lists.js",
+            "title": "Add a new contact list",
+            "description": "Add a new contact list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_contacts_lists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_contacts_lists__listid_": {
+            "main": "./lib/actions/delete_contacts_lists__listid_.js",
+            "title": "Delete an existing contact list",
+            "description": "Delete an existing contact list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_contacts_lists__listid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_contacts_lists__listid_": {
+            "main": "./lib/actions/put_contacts_lists__listid_.js",
+            "title": "Update an existing contact list",
+            "description": "Update an existing contact list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_contacts_lists__listid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_contacts__contactid_": {
+            "main": "./lib/actions/delete_contacts__contactid_.js",
+            "title": "Delete an existing contact",
+            "description": "Delete an existing contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_contacts__contactid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_contacts__contactid_": {
+            "main": "./lib/actions/put_contacts__contactid_.js",
+            "title": "Update an existing contact",
+            "description": "Update an existing contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_contacts__contactid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_subscription__listid_": {
+            "main": "./lib/actions/post_subscription__listid_.js",
+            "title": "Subscribe an email address to a list. This api call has the same behavior as\na regular subscribe form. However, single opt-in is allowed for system integration\npurposes.\n\n- If email address does not exist, a new contact will be added to the list.\n- If email address exists custom fields will be updated and status will be put\n  to unconfirmed or active depending of singleoptin value.\n- If current status if Active, this operation will only update the custom fields.\n- If singleoptin is true, no email confirmation will be sent. In that case,\n  you must provide the subscribe's origin ip and confirmation date-time.\n",
+            "description": "Subscribe an email address to a list. This api call has the same behavior as\na regular subscribe form. However, single opt-in is allowed for system integration\npurposes.\n\n- If email address does not exist, a new contact will be added to the list.\n- If email address exists custom fields will be updated and status will be put\n  to unconfirmed or active depending of singleoptin value.\n- If current status if Active, this operation will only update the custom fields.\n- If singleoptin is true, no email confirmation will be sent. In that case,\n  you must provide the subscribe's origin ip and confirmation date-time.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_subscription__listid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

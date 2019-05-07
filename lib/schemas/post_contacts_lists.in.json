@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "customfields": {
+                    "description": "Array of ContactCustomFieldSchema",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "description": "equivalent to html form input name attribute",
+                                "type": "string"
+                            },
+                            "label": {
+                                "description": "User friendly label describing the field",
+                                "type": "string"
+                            },
+                            "required": {
+                                "description": "Is field required",
+                                "type": "boolean"
+                            },
+                            "type": {
+                                "description": "Type (\n  1- String / text free form\n  2- Numeric / integer or decimal\n  3- Date / ISO 8601 format (YYYY/MM/DD)\n)\n",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "label",
+                            "key",
+                            "type"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "eventcustomizations": {
+                    "description": "Array of ContactListEventCustomization",
+                    "items": {
+                        "properties": {
+                            "redirecturl": {
+                                "description": "full url of the destination landing page",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "Type (\n  1- Subscribe confirmation request landing page\n  2- Subscribe opt-in landing page\n  3- Unsubscribe confirmation landing page\n)\n",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of the contact list",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
